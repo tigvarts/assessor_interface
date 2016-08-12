@@ -2,11 +2,13 @@
  <head>
  </head>
  <body>
-  Please insert your textfile here:
-  <form action="/find/" method="post">{% csrf_token %}
-   <textarea name="text"></textarea> <br>
-   Your contact information if you wish: <input type="text" name="contact">
-   <input type="submit">
-  </form>
+  <center style="margin-top: 7vh;">
+   Please insert your textfile here:
+   <form action="/find/" method="post">{% csrf_token %}
+    <textarea name="text" rows="20" cols="100"></textarea> <br>
+    Provide your contact information if you wish: <input type="text" name="contact"> <br>
+    <input type="submit">
+   </form>
+  </center>
  </body>
 </html>

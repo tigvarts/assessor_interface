@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Query, Mark
+from .models import Query, Mark, CatImage
 
 # Register your models here.
 
@@ -12,3 +12,4 @@ class QueryAdmin(admin.ModelAdmin):
 
 admin.site.register(Query, QueryAdmin)
 admin.site.register(Mark)
+admin.site.register(CatImage)

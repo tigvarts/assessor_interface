@@ -2,15 +2,18 @@
  <head>
  </head>
  <body>
-  Your results are:
-  <form action="/done/" method=post>{% csrf_token %}
-   <ul>
-    {% for result in results %}
-     <li>{{ result.text }} <input type="hidden" name="line_id_{{ forloop.counter }}" value="{{ result.id }}"> Relevance: <input type="number" min="1" max="5" name="line_mark_{{ forloop.counter }}"> </li>
-    {% endfor %}
-   </ul>
-   <input name="src_id" value="{{ src_id }}" type="hidden">
-   <input type="submit">
-  </form>
+  <center style="margin-top: 7vh;">
+   Your results are:
+   <form action="/done/" method=post>{% csrf_token %}
+    <ul>
+     {% for result in results %}
+      <li>{{ result.text }} <input type="hidden" name="line_id_{{ forloop.counter }}" value="{{ result.id }}"> Relevance: <input type="number" min="1" max="4" name="line_mark_{{ forloop.counter }}" required> </li>
+     {% endfor %}
+    </ul>
+    <input name="src_id" value="{{ src_id }}" type="hidden">
+    Please mark the relevance of results using numbers from 1 to 4.<br>
+    <input type="submit">
+   </form>
+  </center>
  </body>
 </html>

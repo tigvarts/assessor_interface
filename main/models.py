@@ -14,3 +14,9 @@ class Mark(models.Model):
     line_id = models.IntegerField()
     line_mark = models.IntegerField()
     query = models.ForeignKey('Query', null=False, on_delete=models.CASCADE)
+
+class CatImage(models.Model):
+    url = models.CharField(max_length=400)
+
+    def __str__(self):
+        return self.url
