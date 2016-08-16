@@ -101,3 +101,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+DAEMON_INPUT = os.path.join(BASE_DIR, 'daemon_input.txt')
+DAEMON_OUTPUT = os.path.join(BASE_DIR, 'daemon_output.txt')
