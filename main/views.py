@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from main.yours import your_function
-from main.models import Query, Mark, CatImage
+from main.models import Query, Mark, CatImage, Version
 import random
 
 # Create your views here.
@@ -12,7 +12,7 @@ def assess(request):
     if 'text' not in request.POST:
         return redirect('/')
 
-    q = Query.objects.create(text = request.POST['text'], contact = request.POST.get('contact'))
+    q = Query.objects.create(text = request.POST['text'], contact = request.POST.get('contact'), version=Version.get_current_version())
     d = {'results': your_function(request.POST['text']), 'src_id': q.id}
     return render(request, 'assess.html', d)
 
@@ -33,6 +33,6 @@ def thank_you(request):
     q = Query.objects.get(id=int(request.POST['src_id']))
     for key in res:
         if 'id' in res[key] and 'mark' in res[key]:
-            q.mark_set.create(line_no = key, line_id = res[key]['id'], line_mark = res[key]['mark'])
+            q.mark_set.create(line_no = key, line_id = res[key]['id'], line_mark = res[key]['mark'], version=Version.get_current_version())
             
     return render(request, 'thank_you_page.html', {'img': random.choice(CatImage.objects.all())})
