@@ -8,10 +8,11 @@ def your_function(text):
         time.sleep(1)
     with open(DAEMON_INPUT, 'w') as f:
         f.write(text)
-    while os.path.exists(DAEMON_OUTPUT):
+    while not os.path.exists(DAEMON_OUTPUT):
         time.sleep(1)
     with open(DAEMON_OUTPUT, 'r') as f:
         res = f.read()
+    os.remove(DAEMON_OUTPUT)
 
     res = json.loads(res)
 

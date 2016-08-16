@@ -6,7 +6,7 @@ import json
 def process(data):
     return [{'text': 'first_item', 'id': 1}, {'text': 'second_item', 'id': 2}, {'text': 'third_item', 'id': 3}]
 
-while True
+while True:
     if os.path.exists(DAEMON_INPUT):
         with open(DAEMON_INPUT, 'r') as f:
             data = f.read()
