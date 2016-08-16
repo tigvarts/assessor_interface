@@ -1,4 +1,4 @@
-from index_advisor.settings import DAEMON_INPUT, DAEMON_OUTPUT
+from index_assessor.settings import DAEMON_INPUT, DAEMON_OUTPUT
 import os
 import time
 import json
